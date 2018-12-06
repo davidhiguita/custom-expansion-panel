@@ -45,10 +45,10 @@ class CustomExpansionPanel extends PureComponent {
     }
 
     renderPrimaryLabel() {
-        const { primaryLabel, secondaryLabel } = this.props;
+        const { expandedSecondaryLabel, primaryLabel } = this.props;
         const classes = classNames(
             'custom-expansion-panel__primary-label',
-            { 'custom-expansion-panel__primary-label--full': !!primaryLabel && !secondaryLabel },
+            { 'custom-expansion-panel__primary-label--full': !expandedSecondaryLabel || !this.state.isExpanded },
         );
         return (
             <div className={classes}>
@@ -58,14 +58,14 @@ class CustomExpansionPanel extends PureComponent {
     }
 
     renderSecondaryLabel() {
-        const { secondaryLabel } = this.props;
+        const { expandedSecondaryLabel } = this.props;
         const classes = classNames(
             'custom-expansion-panel__secondary-label',
-            { 'custom-expansion-panel__secondary-label--exists': !!secondaryLabel }
+            { 'custom-expansion-panel__secondary-label--show': !expandedSecondaryLabel || this.state.isExpanded }
         );
         return (
             <div className={classes}>
-                {secondaryLabel || null}
+                {this.state.isExpanded && expandedSecondaryLabel}
             </div>
         );
     }
@@ -104,22 +104,22 @@ CustomExpansionPanel.propTypes = {
         PropTypes.func,
         PropTypes.node,
     ]).isRequired,
+    expandedSecondaryLabel: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.node,
+    ]),
     iconName: PropTypes.string,
     primaryLabel: PropTypes.oneOfType([
         PropTypes.func,
         PropTypes.node,
-    ]),
-    secondaryLabel: PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.node,
-    ]),
+    ])
 };
 
 CustomExpansionPanel.defaultProps = {
     expandIcon: null,
+    expandedSecondaryLabel: null,
     iconName: '',
     primaryLabel: null,
-    secondaryLabel: null
 }
 
 export default CustomExpansionPanel;

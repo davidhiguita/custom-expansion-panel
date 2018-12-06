@@ -35,9 +35,9 @@ const secondaryLabel = (
 const CustomExpansionPanelContainer = () => (
     <CustomExpansionPanel
         content={content}
-        iconName="map"
+        // iconName="map"
         primaryLabel={primaryLabel}
-        secondaryLabel={secondaryLabel}
+        expandedSecondaryLabel={secondaryLabel}
     />
 );
 
