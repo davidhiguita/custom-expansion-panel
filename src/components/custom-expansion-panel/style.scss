@@ -18,10 +18,16 @@
   
     &__primary-label {
         flex: 60%;
+        &--full {
+            flex: 90%;
+        }
     }
 
     &__secondary-label {
-        flex: 30%;
+        flex: 0%;
+        &--exists {
+            flex: 30%;
+        }
     }
   
     &__expansion-icon {

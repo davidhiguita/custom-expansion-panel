@@ -35,7 +35,7 @@ const CustomExpansionPanelContainer = () => (
     <CustomExpansionPanel
         content={content}
         primaryLabel={primaryLabel}
-        secondaryLabel={secondaryLabel}
+        // secondaryLabel={secondaryLabel}
     />
 );
 

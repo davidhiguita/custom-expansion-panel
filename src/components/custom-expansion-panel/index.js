@@ -44,17 +44,27 @@ class CustomExpansionPanel extends PureComponent {
     }
 
     renderPrimaryLabel() {
+        const { primaryLabel, secondaryLabel } = this.props;
+        const classes = classNames(
+            'custom-expansion-panel__primary-label',
+            { 'custom-expansion-panel__primary-label--full': !!primaryLabel && !secondaryLabel },
+        );
         return (
-        <div className="custom-expansion-panel__primary-label">
-            {this.props.primaryLabel || null}
-        </div>
+            <div className={classes}>
+                {primaryLabel || null}
+            </div>
         );
     }
 
     renderSecondaryLabel() {
+        const { secondaryLabel } = this.props;
+        const classes = classNames(
+            'custom-expansion-panel__secondary-label',
+            { 'custom-expansion-panel__secondary-label--exists': !!secondaryLabel }
+        );
         return (
-            <div className="custom-expansion-panel__secondary-label">
-                {this.props.secondaryLabel || null}
+            <div className={classes}>
+                {secondaryLabel || null}
             </div>
         );
     }
