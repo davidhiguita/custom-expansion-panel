@@ -48,7 +48,11 @@ class CustomExpansionPanel extends PureComponent {
         const { expandedSecondaryLabel, primaryLabel } = this.props;
         const classes = classNames(
             'custom-expansion-panel__primary-label',
-            { 'custom-expansion-panel__primary-label--full': !expandedSecondaryLabel || !this.state.isExpanded },
+            {
+                'custom-expansion-panel__primary-label--full':
+                    (!expandedSecondaryLabel || !this.state.isExpanded)
+                    || !expandedSecondaryLabel
+            }
         );
         return (
             <div className={classes}>
@@ -59,13 +63,14 @@ class CustomExpansionPanel extends PureComponent {
 
     renderSecondaryLabel() {
         const { expandedSecondaryLabel } = this.props;
-        const classes = classNames(
-            'custom-expansion-panel__secondary-label',
-            { 'custom-expansion-panel__secondary-label--show': !expandedSecondaryLabel || this.state.isExpanded }
-        );
-        return (
-            <div className={classes}>
-                {this.state.isExpanded && expandedSecondaryLabel}
+
+        if (!this.state.isExpanded) {
+            return null;
+        }
+
+        return expandedSecondaryLabel && (
+            <div className="custom-expansion-panel__secondary-label">
+                {expandedSecondaryLabel}
             </div>
         );
     }
