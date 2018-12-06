@@ -17,6 +17,8 @@
     }
   
     &__primary-label {
+        align-items: center;
+        display: flex;
         flex: 60%;
         &--full {
             flex: 90%;
@@ -24,6 +26,8 @@
     }
 
     &__secondary-label {
+        align-items: center;
+        display: flex;
         flex: 0%;
         &--exists {
             flex: 30%;

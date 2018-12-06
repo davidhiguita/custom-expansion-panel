@@ -34,11 +34,12 @@ class CustomExpansionPanel extends PureComponent {
     }
 
     renderExpansionIcon() {
+        const icon = this.props.iconName || 'keyboard_arrow_up';
         return (
             <div className="custom-expansion-panel__expansion-icon">
-            <FontIcon onClick={this.toggleExpandedState}>
-                keyboard_arrow_up
-            </FontIcon>
+                <FontIcon onClick={this.toggleExpandedState}>
+                    {icon}
+                </FontIcon>
             </div>
         );
     }
@@ -102,7 +103,8 @@ CustomExpansionPanel.propTypes = {
     content: PropTypes.oneOfType([
         PropTypes.func,
         PropTypes.node,
-    ]),
+    ]).isRequired,
+    iconName: PropTypes.string,
     primaryLabel: PropTypes.oneOfType([
         PropTypes.func,
         PropTypes.node,
@@ -114,6 +116,8 @@ CustomExpansionPanel.propTypes = {
 };
 
 CustomExpansionPanel.defaultProps = {
+    expandIcon: null,
+    iconName: '',
     primaryLabel: null,
     secondaryLabel: null
 }

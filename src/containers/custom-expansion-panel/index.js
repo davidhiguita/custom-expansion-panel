@@ -1,4 +1,5 @@
 import React from 'react';
+import { FonIcon, FontIcon } from 'react-md';
 
 import CustomExpansionPanel from '../../components/custom-expansion-panel';
 
@@ -34,8 +35,9 @@ const secondaryLabel = (
 const CustomExpansionPanelContainer = () => (
     <CustomExpansionPanel
         content={content}
+        iconName="map"
         primaryLabel={primaryLabel}
-        // secondaryLabel={secondaryLabel}
+        secondaryLabel={secondaryLabel}
     />
 );
 
