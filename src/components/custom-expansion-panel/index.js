@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { FontIcon, Paper } from "react-md";
 
 import "./style.scss";
-
 class CustomExpansionPanel extends PureComponent {
     constructor(props) {
         super(props);
@@ -48,11 +47,7 @@ class CustomExpansionPanel extends PureComponent {
         const { expandedSecondaryLabel, primaryLabel } = this.props;
         const classes = classNames(
             'custom-expansion-panel__primary-label',
-            {
-                'custom-expansion-panel__primary-label--full':
-                    (!expandedSecondaryLabel || !this.state.isExpanded)
-                    || !expandedSecondaryLabel
-            }
+            { 'custom-expansion-panel__primary-label--full': !expandedSecondaryLabel }
         );
         return (
             <div className={classes}>
@@ -64,13 +59,13 @@ class CustomExpansionPanel extends PureComponent {
     renderSecondaryLabel() {
         const { expandedSecondaryLabel } = this.props;
 
-        if (!this.state.isExpanded) {
+        if (!expandedSecondaryLabel) {
             return null;
         }
 
         return expandedSecondaryLabel && (
             <div className="custom-expansion-panel__secondary-label">
-                {expandedSecondaryLabel}
+                { this.state.isExpanded ? expandedSecondaryLabel : ''}
             </div>
         );
     }
@@ -86,7 +81,6 @@ class CustomExpansionPanel extends PureComponent {
     }
 
     render() {
-        // const {} = props;
         const { isExpanded } = this.state;
 
         const classes = classNames(

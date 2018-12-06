@@ -53,12 +53,12 @@ class App extends Component {
                             <div style={{ color: '#01A9F4', fontSize: '1.5rem' }}>Sterling, IL</div>
                         </div>
                         }
-                        expandedSecondaryLabel={
-                          <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <FontIcon style={{ marginRight: '10px' }}>access_time</FontIcon>
-                            <span>02/15 15:30 - 02/15 15:45</span>
-                          </div>
-                        }
+                        // expandedSecondaryLabel={
+                        //   <div style={{ display: 'flex', alignItems: 'center' }}>
+                        //     <FontIcon style={{ marginRight: '10px' }}>access_time</FontIcon>
+                        //     <span>02/15 15:30 - 02/15 15:45</span>
+                        //   </div>
+                        // }
                     />
                 </div>
                 <div className="item">
