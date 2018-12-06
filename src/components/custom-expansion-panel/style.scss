@@ -20,6 +20,8 @@
         align-items: center;
         display: flex;
         flex: 60%;
+        transition: all 300ms;
+
         &--full {
             flex: 90%;
         }
@@ -29,6 +31,8 @@
         align-items: center;
         display: flex;
         flex: 0%;
+        transition: all 500ms;
+
         &--show {
             flex: 30%;
         }
